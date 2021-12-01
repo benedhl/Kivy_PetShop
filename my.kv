@@ -1,0 +1,244 @@
+<CreateAccountWindow>:
+    name: "create"
+
+    namee: namee
+    email: email
+    password: passw
+    cpff: cpff
+    telefonee: telefonee
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Crie uma conta"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 15**4
+
+            Label:
+                size_hint: 0.4,0.10
+                pos_hint: {"x":0.186, "top":0.88}
+                text: "Nome completo: "
+                font_size: (root.width**2 + root.height**2) / 17**4
+
+            TextInput:
+                pos_hint: {"x":0.27, "top":0.8}
+                size_hint: 0.5, 0.05
+                id: namee
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 17**4
+                write_tab: False
+
+            Label:
+                size_hint: 0.4,0.10
+                pos_hint: {"x":0.121, "top":0.8-0.05}
+                text: "Email: "
+                font_size: (root.width**2 + root.height**2) / 17**4
+
+            TextInput:
+                pos_hint: {"x":0.27, "top":0.8-0.13}
+                size_hint: 0.5, 0.05
+                id: email
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 17**4
+                write_tab: False
+
+            Label:
+                size_hint: 0.4,0.10
+                pos_hint: {"x":0.14, "top":0.8-0.16}
+                text: "Telefone: "
+                font_size: (root.width**2 + root.height**2) / 17**4
+
+            TextInput:
+                pos_hint: {"x":0.27, "top":0.8-0.23}
+                size_hint: 0.5, 0.05
+                id: telefonee
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 17**4
+                write_tab: False
+
+            Label:
+                size_hint: 0.4,0.10
+                pos_hint: {"x":0.11, "top":0.8-0.26}
+                text: "CPF: "
+                font_size: (root.width**2 + root.height**2) / 17**4
+
+            TextInput:
+                pos_hint: {"x":0.27, "top":0.8-0.33}
+                size_hint: 0.5, 0.05
+                id: cpff
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 17**4
+                write_tab: False
+
+
+            Label:
+                size_hint: 0.4,0.10
+                pos_hint: {"x":0.13, "top":0.8-0.36}
+                text: "Senha: "
+                font_size: (root.width**2 + root.height**2) / 17**4
+
+            TextInput:
+                pos_hint: {"x":0.27, "top":0.8-0.43}
+                size_hint: 0.5, 0.05
+                id: passw
+                multiline: False
+                password: True
+                font_size: (root.width**2 + root.height**2) / 17**4
+                write_tab: False
+
+
+
+
+
+
+        Button:
+            pos_hint:{"x":0.26,"y":0.19}
+            size_hint: 0.5, 0.1
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Já possui uma conta? Faça login"
+            bold: True
+            background_color: 1, 0.3, 0.2, 1
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+        Button:
+            pos_hint:{"x":0.36,"y":0.05}
+            size_hint: 0.3, 0.09
+            text: "Enviar"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            bold: True
+            background_color: 1, 0.3, 0.2, 1
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+<LoginWindow>:
+    name: "login"
+
+    email: email
+    password: password
+
+    FloatLayout:
+
+        Label:
+            text:"Email: "
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.15, "top":0.9}
+            size_hint: 0.35, 0.10
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            pos_hint: {"x": 0.25 , "top":0.8}
+            size_hint: 0.5, 0.10
+            write_tab: False
+
+        Label:
+            text:"Senha: "
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.15, "top":0.7}
+            size_hint: 0.35, 0.10
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.25, "top":0.6}
+            size_hint: 0.5, 0.10
+            write_tab: False
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.05}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Entrar"
+            bold: True
+            background_color: 1, 0.3, 0.2, 1
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+        Button:
+            pos_hint:{"x":0.26,"y":0.3}
+            size_hint: 0.5, 0.1
+            font_size: (root.width**2 + root.height**2) / 18**4
+            text: "Ainda não tem uma conta? Crie uma"
+            bold: True
+            background_color: 1, 0.3, 0.2, 1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+<MainWindow>:
+    n: n
+    email: email
+    created:created
+    telefonee: telefonee
+    cpff: cpff
+
+    FloatLayout:
+        Label:
+            pos_hint:{"x": 0.1, "top":1.07}
+            size_hint:0.8, 0.2
+            text: "Dados do Usuário "
+
+        Label:
+            id: n
+            pos_hint:{"x": 0.1, "top":1}
+            size_hint:0.8, 0.2
+            text: "Nome: "
+
+        Label:
+            id: email
+            pos_hint:{"x": 0.1, "top":0.95}
+            size_hint:0.8, 0.2
+            text: "Email: "
+
+        Label:
+            id: created
+            pos_hint:{"x": 0.1, "top":0.90}
+            size_hint:0.8, 0.2
+            text: "Criado em: "
+
+        Label:
+            id: telefonee
+            pos_hint:{"x": 0.1, "top":0.86}
+            size_hint:0.8, 0.2
+            text: "Telefone: "
+
+        Label:
+            id: cpff
+            pos_hint:{"x": 0.1, "top":0.82}
+            size_hint:0.8, 0.2
+            text: "CPF: "
+        Label:
+            pos_hint:{"x": 0.1, "top":0.77}
+            size_hint:0.8, 0.2
+            text: "Seu pet ficará pronto em 1 hora"
+
+        Label:
+            text: str(root.lbl)
+            font_size: (root.width**2 + root.height**2) / 15**4
+
+
+
+        Button:
+            pos_hint:{"x":0.40, "y": 0.1}
+            size_hint:0.2,0.1
+            text: "Sair"
+            bold: True
+            background_color: 1, 0.3, 0.2, 1
+
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
